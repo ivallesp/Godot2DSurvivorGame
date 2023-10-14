@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctmgj85ge8xlh"]
+
+[ext_resource type="Script" path="res://scenes/components/vial_drop_component.gd" id="1_jtp7k"]
+
+[node name="VialDropComponent" type="Node"]
+script = ExtResource("1_jtp7k")
+drop_proba = 1.0
