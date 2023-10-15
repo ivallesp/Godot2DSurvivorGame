@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ct0gs7ah5vi8u"]
+[gd_scene load_steps=17 format=3 uid="uid://ct0gs7ah5vi8u"]
 
 [ext_resource type="Script" path="res://scenes/game_object/wizard_enemy/wizard_enemy.gd" id="1_8vfee"]
 [ext_resource type="PackedScene" uid="uid://bp5bwdxtu45gr" path="res://scenes/components/health_component.tscn" id="1_x1nh3"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://7a43268s8aa" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="3_m5pb3"]
 [ext_resource type="PackedScene" uid="uid://ct8fe5d4u033o" path="res://scenes/components/velocity_component.tscn" id="4_j1rf1"]
 [ext_resource type="PackedScene" uid="uid://dvyxpnfiokwv5" path="res://scenes/components/death_component.tscn" id="5_p3tod"]
+[ext_resource type="PackedScene" uid="uid://5slbgwon0at6" path="res://scenes/components/hit_flash_component.tscn" id="6_0bbld"]
 [ext_resource type="Texture2D" uid="uid://bvikjff36vv7m" path="res://scenes/game_object/wizard_enemy/wizard_enemy.png" id="6_fqfej"]
+[ext_resource type="Shader" path="res://scenes/components/hit_flash_component.gdshader" id="7_gm3l0"]
 [ext_resource type="PackedScene" uid="uid://dpkgi2du3ni10" path="res://scenes/components/hurt_box_component.tscn" id="7_qwk8b"]
 
 [sub_resource type="Animation" id="Animation_0gejf"]
@@ -113,6 +115,11 @@ _data = {
 "walk": SubResource("Animation_phhqd")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ic3m5"]
+resource_local_to_scene = true
+shader = ExtResource("7_gm3l0")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_0erwt"]
 radius = 8.06226
 
@@ -140,6 +147,11 @@ health_component_node = NodePath("../HealthComponent")
 [node name="VelocityComponent" parent="." instance=ExtResource("4_j1rf1")]
 max_speed = 70
 acceleration = 50.0
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_0bbld")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_ic3m5")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_p3tod")]
 health_component = NodePath("../HealthComponent")

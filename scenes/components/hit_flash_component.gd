@@ -10,7 +10,6 @@ var hit_flash_tween: Tween
 func _ready():
 	health_component.health_changed.connect(on_health_changed)
 	sprite.material = hit_flash_material
-	hit_flash_material.set_shader_parameter("lerp_percent", 0.0)
 
 
 func on_health_changed():
