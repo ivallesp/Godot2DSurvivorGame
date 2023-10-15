@@ -50,10 +50,10 @@ _data = {
 "default": SubResource("Animation_i68fr")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xl7ro"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1chc"]
 resource_local_to_scene = true
 shader = ExtResource("7_qm3q3")
-shader_parameter/lerp_percent = 1.0
+shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f4si3"]
 
@@ -83,7 +83,7 @@ health_component_node = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_goqbe")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_xl7ro")
+hit_flash_material = SubResource("ShaderMaterial_x1chc")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("3_jptqq")]
 health_component = NodePath("../HealthComponent")
