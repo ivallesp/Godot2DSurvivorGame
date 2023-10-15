@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-var MAX_SPEED = 125  # Max player speed
-var ACCELERATION_SMTH = 25  # Acceleration smoothing
+@onready var velocity_component = $VelocityComponent
 @onready var damage_interval_timer = $DamageIntervalTimer
 @onready var health_component = $HealthComponent as HealthComponent
 @onready var health_bar = $HealthBar
@@ -10,9 +9,11 @@ var ACCELERATION_SMTH = 25  # Acceleration smoothing
 @onready var visuals = $Visuals
 
 var num_colliding_bodies: int = 0
+var base_speed = 0
 
 
 func _ready():
+	base_speed = velocity_component.max_speed
 	$CollisionArea2D.body_entered.connect(on_body_entered)
 	$CollisionArea2D.body_exited.connect(on_body_exited)
 	health_component.health_changed.connect(on_health_changed)
@@ -23,11 +24,8 @@ func _ready():
 
 func _process(delta):
 	var direction = get_movement_vector().normalized() as Vector2
-	var target_velocity = direction * MAX_SPEED
-	velocity = velocity.lerp(
-		target_velocity, 1 - exp(-delta * ACCELERATION_SMTH)
-	)
-	move_and_slide()
+	velocity_component.accelerate_in_direction(direction)
+	velocity_component.move(self)
 	var movement_sign = sign(direction.x)
 	if movement_sign != 0:
 		visuals.scale.x = movement_sign
@@ -81,7 +79,10 @@ func on_ability_upgrade_added(
 	ability_upgrade: AbilityUpgrade,
 	current_upgrades: Dictionary,
 ):
-	if not ability_upgrade is Ability:
-		return  # The upgrade is handled in UpgradeManager
-
-	abilities.add_child(ability_upgrade.ability_controller_scene.instantiate())
+	if ability_upgrade is Ability:
+		abilities.add_child(
+			ability_upgrade.ability_controller_scene.instantiate()
+		)
+	elif ability_upgrade.id == "player_speed":
+		var qty = current_upgrades["player_speed"]["quantity"]
+		velocity_component.max_speed = base_speed + (base_speed * qty * .1)

@@ -10,6 +10,9 @@ var upgrade_sword_damage = preload(
 	"res://resources/upgrades/sword_damage.tres"
 )
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
+var upgrade_player_speed = preload(
+	"res://resources/upgrades/player_speed.tres"
+)
 
 var current_upgrades = {}
 
@@ -20,9 +23,14 @@ func _ready():
 
 
 func initialize_upgrade_pool():
-	var initial_pool = [upgrade_sword_rate, upgrade_sword_damage, upgrade_axe]
-	for upgrade in initial_pool:
-		upgrade_pool.add_item(upgrade, 10)
+	var initial_pool = [
+		[upgrade_sword_rate, 10],
+		[upgrade_sword_damage, 10],
+		[upgrade_axe, 10],
+		[upgrade_player_speed, 5]
+	]
+	for item in initial_pool:
+		upgrade_pool.add_item(item[0], item[1])
 
 
 func apply_upgrade(upgrade: AbilityUpgrade):
