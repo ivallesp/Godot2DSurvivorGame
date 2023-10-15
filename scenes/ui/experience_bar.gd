@@ -6,6 +6,7 @@ extends CanvasLayer
 
 func _ready():
 	experience_manager.experience_upgraded.connect(on_experience_upgrade)
+	progress_bar.value = 0.0
 
 
 func on_experience_upgrade(current, target):
