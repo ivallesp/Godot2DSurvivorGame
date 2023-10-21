@@ -47,12 +47,15 @@ func check_ray_collision(pos1, pos2, collision_mask):
 
 func on_timer_timeout():
 	timer.start()  # We use this instead of autostart to update the config
+	var spawn_position = get_spawn_position()
+	if spawn_position == null:
+		return
 
 	var enemy_scene = enemy_table.pick_item()
 	var enemy_instance = enemy_scene.instantiate() as Node2D
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy_instance)
-	enemy_instance.global_position = get_spawn_position()
+	enemy_instance.global_position = spawn_position
 
 
 func on_arena_difficulty_increased(arena_difficulty):

@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var abilities = $Abilities
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
+@onready var hit_random_audio_stream_player_2d = $HitRandomAudioStreamPlayer2D
 
 var num_colliding_bodies: int = 0
 var base_speed = 0
@@ -67,12 +68,16 @@ func on_body_exited(other_body: Node2D):
 	num_colliding_bodies -= 1
 
 
+@export var min_pitch: float = 0.9
+
+
 func on_damage_interval_timer_timeout():
 	check_deal_damage()
 
 
 func on_health_changed():
 	GameEvents.emit_player_damaged()
+	hit_random_audio_stream_player_2d.play_random_stream()
 	update_healthbar()
 
 

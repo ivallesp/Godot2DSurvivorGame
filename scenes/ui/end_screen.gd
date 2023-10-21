@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var quit_button = %QuitButton
 @onready var title_label = %TitleLabel
 @onready var description_label = %DescriptionLabel
+@onready var defeat_audio_stream_player = %DefeatAudioStreamPlayer
+@onready var victory_audio_stream_player = %VictoryAudioStreamPlayer
 
 
 func _ready():
@@ -21,6 +23,13 @@ func _ready():
 		. set_ease(Tween.EASE_OUT)
 		. set_trans(Tween.TRANS_BACK)
 	)
+
+
+func play_jingles(defeat: bool = false):
+	if defeat:
+		defeat_audio_stream_player.play()
+	else:
+		victory_audio_stream_player.play()
 
 
 func on_restart_button_pressed():

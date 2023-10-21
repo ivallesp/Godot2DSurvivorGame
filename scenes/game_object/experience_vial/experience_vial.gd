@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var collision_shape_2d = $Area2D/CollisionShape2D as CollisionShape2D
 @onready var sprite = $Sprite2D
+@onready var random_audio_stream_player_2d = $RandomAudioStreamPlayer2D
 
 
 func _ready():
@@ -25,6 +26,8 @@ func tween_shrink(percentage: float, original: Vector2):
 
 func collect():
 	GameEvents.emit_experience_vial_collected(1)
+	random_audio_stream_player_2d.play_random_stream()
+	await random_audio_stream_player_2d.finished
 	queue_free()
 
 
