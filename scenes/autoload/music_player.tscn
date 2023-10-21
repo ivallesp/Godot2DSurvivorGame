@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dabry38cx3vss"]
+
+[ext_resource type="AudioStream" uid="uid://bwnosbeh6khbb" path="res://assets/audio/switch10.ogg" id="1_orgk1"]
+[ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="2_p3k6w"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_orgk1")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_p3k6w")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
