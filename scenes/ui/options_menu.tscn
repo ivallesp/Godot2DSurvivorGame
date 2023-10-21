@@ -39,6 +39,7 @@ theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 21
 text = "Options"
 horizontal_alignment = 1
@@ -52,6 +53,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptions"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "SFX volume"
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptions"]
@@ -59,12 +61,14 @@ unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
+value = 0.5
 
 [node name="MusicOptions" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptions"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Music volume"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptions"]
@@ -72,12 +76,14 @@ unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
+value = 0.5
 
 [node name="WindowOptions" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptions"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Window options"
 
 [node name="WindowButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptions" instance=ExtResource("3_oqku1")]
