@@ -18,5 +18,7 @@ func on_player_died():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
+		ScreeenTransition.transition()
+		await ScreeenTransition.transition_halfway
 		add_child(pause_menu_scene.instantiate())
 		get_tree().root.set_input_as_handled()

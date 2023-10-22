@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3alq6k7andmu"]
 
-[ext_resource type="Script" path="res://CanvasLayer.gd" id="1_l52ds"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_v8cdp"]
 [ext_resource type="PackedScene" uid="uid://lhto6eve7jeu" path="res://scenes/ui/vignette.tscn" id="2_6b0x2"]
 [ext_resource type="TileSet" uid="uid://ijhbaenqxa0m" path="res://resources/tileset.tres" id="2_m37cj"]
 [ext_resource type="PackedScene" uid="uid://cbofxyihqialk" path="res://scenes/ui/sound_button.tscn" id="3_xklop"]
 
 [node name="MainMenu" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_l52ds")
+script = ExtResource("1_v8cdp")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(71.57, 0)
