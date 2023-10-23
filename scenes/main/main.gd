@@ -11,6 +11,7 @@ func _ready():
 
 func on_player_died():
 	var end_screen_instance = end_screen_scene.instantiate()
+	MetaProgression.save()  # Save the game
 	add_child(end_screen_instance)
 	end_screen_instance.set_defeat()
 	end_screen_instance.play_jingles(true)
