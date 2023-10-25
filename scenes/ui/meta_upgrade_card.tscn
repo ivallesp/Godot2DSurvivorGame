@@ -116,8 +116,8 @@ border_width_bottom = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
 anti_aliasing = false
 
-[node name="MetaUpgradeCard" type="PanelContainer" groups=["upgrade_card"]]
-custom_minimum_size = Vector2(150, 150)
+[node name="MetaUpgradeCard" type="PanelContainer" groups=["meta_upgrade_card"]]
+custom_minimum_size = Vector2(180, 150)
 pivot_offset = Vector2(75, 75)
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -172,7 +172,23 @@ autowrap_mode = 2
 layout_mode = 2
 theme_override_constants/separation = -4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"BlueOutlineLabel"
+text = "x0"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+text = " - "
+
+[node name="ExperienceLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_type_variation = &"BlueOutlineLabel"
@@ -189,17 +205,18 @@ size_flags_vertical = 4
 texture = ExtResource("12_4soiw")
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_5w0c6")
 max_value = 1.0
-step = 0.91
 value = 0.91
 show_percentage = false
 
 [node name="PurchaseButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("13_3yg1l")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Purchase
 "

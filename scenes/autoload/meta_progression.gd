@@ -6,6 +6,7 @@ var save_data: Dictionary = {"meta_upgrade_currency": 0, "meta_upgrades": {}}
 
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_vial_collected)
+	load_save_file()
 
 
 func load_save_file():
@@ -24,6 +25,14 @@ func add_meta_upgrade(meta_upgrade: MetaUpgrade):
 	if not save_data["meta_upgrades"].has(meta_upgrade.id):
 		save_data["meta_upgrades"][meta_upgrade.id] = {"quantity": 0}
 	save_data["meta_upgrades"][meta_upgrade.id]["quantity"] += 1
+	save()
+
+
+func get_upgrade_count(meta_upgrade_id: String):
+	if meta_upgrade_id in save_data["meta_upgrades"]:
+		return save_data["meta_upgrades"][meta_upgrade_id]["quantity"]
+	else:
+		return 0
 
 
 func on_experience_vial_collected(number: float):

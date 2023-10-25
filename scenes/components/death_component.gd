@@ -15,6 +15,7 @@ func _ready():
 func on_died():
 	if not owner is Node2D:
 		return
+	MetaProgression.save()
 	var spawn_position = owner.global_position
 	var entities = get_tree().get_first_node_in_group("entities_layer")
 	hit_random_audio_stream_player_2d.play_random_stream()

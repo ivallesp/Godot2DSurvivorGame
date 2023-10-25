@@ -11,9 +11,12 @@ func _ready():
 
 
 func on_dead():
+	var upgrade_count = MetaProgression.get_upgrade_count("experience_gain")
+	var adjusted_drop_proba = min(drop_proba + 0.1 * upgrade_count, 1)
+
 	if not owner is Node2D:
 		return
-	if randf() < drop_proba:
+	if randf() < adjusted_drop_proba:
 		var death_location = (owner as Node2D).global_position
 		var vial_instance = vial_scene.instantiate() as Node2D
 		var ents_layer = get_tree().get_first_node_in_group("entities_layer")

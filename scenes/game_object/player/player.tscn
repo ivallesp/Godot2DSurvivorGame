@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d4nodedbbfcxo" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_bcp11"]
 [ext_resource type="Script" path="res://scenes/components/health_component.gd" id="2_nbf6q"]
 [ext_resource type="PackedScene" uid="uid://ct8fe5d4u033o" path="res://scenes/components/velocity_component.tscn" id="2_ui2dr"]
-[ext_resource type="PackedScene" uid="uid://deca17wlaexa8" path="res://scenes/components/random_audio_stream_player_2d.tscn" id="6_rpf51"]
+[ext_resource type="PackedScene" uid="uid://deca17wlaexa8" path="res://scenes/components/random_audio_stream_player_2d_component.tscn" id="6_rpf51"]
 [ext_resource type="AudioStream" uid="uid://b30x1pl8r0x8o" path="res://assets/audio/impactMining_000.ogg" id="7_kdv2r"]
 [ext_resource type="AudioStream" uid="uid://b3veqlrbi15ft" path="res://assets/audio/impactMining_001.ogg" id="8_dkpnh"]
 [ext_resource type="AudioStream" uid="uid://cv8tewvgtf1q6" path="res://assets/audio/impactMining_002.ogg" id="9_140t1"]
