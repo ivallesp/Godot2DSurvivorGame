@@ -121,7 +121,7 @@ _data = {
 "walk": SubResource("Animation_phhqd")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ir8h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h10f2"]
 resource_local_to_scene = true
 shader = ExtResource("7_gm3l0")
 shader_parameter/lerp_percent = 0.0
@@ -157,7 +157,7 @@ acceleration = 50.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_0bbld")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_8ir8h")
+hit_flash_material = SubResource("ShaderMaterial_h10f2")
 
 [node name="HitRandomAudioStreamPlayer2D" parent="." instance=ExtResource("8_ubiqd")]
 streams = Array[AudioStream]([ExtResource("9_2g2ev"), ExtResource("10_8hijm"), ExtResource("11_hm7lu"), ExtResource("12_ccgqg"), ExtResource("13_5tj5i")])
