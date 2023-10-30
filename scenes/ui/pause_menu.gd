@@ -64,12 +64,8 @@ func on_resume_button_pressed():
 func on_options_button_pressed():
 	var options_menu_instance = options_menu.instantiate()
 	add_child(options_menu_instance)  # Display over main menu
-	# options_menu_instance.back_pressed.connect(on_options_back_pressed.bind(options_menu_instance))
 
 
 func on_quit_button_pressed():
 	ScreeenTransition.transition()
 	ScreeenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")
-
-# func on_options_back_pressed(options_menu: Node):
-# 	options_menu.queue_free()

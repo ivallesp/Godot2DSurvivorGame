@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bvikjff36vv7m" path="res://scenes/game_object/wizard_enemy/wizard_enemy.png" id="6_fqfej"]
 [ext_resource type="Shader" path="res://scenes/components/hit_flash_component.gdshader" id="7_gm3l0"]
 [ext_resource type="PackedScene" uid="uid://dpkgi2du3ni10" path="res://scenes/components/hurt_box_component.tscn" id="7_qwk8b"]
-[ext_resource type="PackedScene" uid="uid://deca17wlaexa8" path="res://scenes/components/random_audio_stream_player_2d.tscn" id="8_ubiqd"]
+[ext_resource type="PackedScene" uid="uid://deca17wlaexa8" path="res://scenes/components/random_audio_stream_player_2d_component.tscn" id="8_ubiqd"]
 [ext_resource type="AudioStream" uid="uid://culfsm66srbgk" path="res://assets/audio/footstep_carpet_000.ogg" id="9_2g2ev"]
 [ext_resource type="AudioStream" uid="uid://dfbuq0hvdrmju" path="res://assets/audio/footstep_carpet_001.ogg" id="10_8hijm"]
 [ext_resource type="AudioStream" uid="uid://4dx3ph7sd4jd" path="res://assets/audio/footstep_carpet_002.ogg" id="11_hm7lu"]
@@ -121,7 +121,7 @@ _data = {
 "walk": SubResource("Animation_phhqd")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1an8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ir8h"]
 resource_local_to_scene = true
 shader = ExtResource("7_gm3l0")
 shader_parameter/lerp_percent = 0.0
@@ -144,7 +144,7 @@ libraries = {
 }
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_x1nh3")]
-max_health = 30.0
+max_health = 20.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component_node") instance=ExtResource("2_x5qw5")]
 vial_scene = ExtResource("3_m5pb3")
@@ -157,7 +157,7 @@ acceleration = 50.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_0bbld")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_o1an8")
+hit_flash_material = SubResource("ShaderMaterial_8ir8h")
 
 [node name="HitRandomAudioStreamPlayer2D" parent="." instance=ExtResource("8_ubiqd")]
 streams = Array[AudioStream]([ExtResource("9_2g2ev"), ExtResource("10_8hijm"), ExtResource("11_hm7lu"), ExtResource("12_ccgqg"), ExtResource("13_5tj5i")])
