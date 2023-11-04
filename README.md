@@ -4,13 +4,7 @@ This is a game I made as part of my Godot learning process, while following [Fir
 
 All assets used in this project are free of license. References to them can be found in the references section below.
 
-<img src="scenes/game_object/player/player.png" style="image-rendering: optimizeSpeed; /* Older versions of FF */
-    image-rendering: -moz-crisp-edges; /* FF 6.0+ */
-    image-rendering: -webkit-optimize-contrast; /* Safari */
-    image-rendering: -o-crisp-edges; /* OS X & Windows Opera (12.02+) */
-    image-rendering: pixelated; /* Awesome future-browsers */
-    -ms-interpolation-mode: nearest-neighbor; /* IE */
-    " alt="Player pixel art" width="200"/>
+![](icon_large.png)
 
 ## Getting started
 
