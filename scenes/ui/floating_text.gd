@@ -45,3 +45,7 @@ func start(text: String):
 		. set_trans(Tween.TRANS_CUBIC)
 		. set_delay(0.3)
 	)
+
+
+func format_health():
+	label.modulate = "#43e1b3"

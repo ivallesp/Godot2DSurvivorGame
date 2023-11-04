@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://cyk7o74qperqr"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_t1cud"]
+
+[resource]
+script = ExtResource("1_t1cud")
+id = "health_increase"
+name = "Auto-heal"
+description = "Increases the health 1 point per level every 30s."
+max_quantity = 4
+experience_cost = 100

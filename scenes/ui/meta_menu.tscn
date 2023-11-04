@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqjtwf6icxhp4"]
+[gd_scene load_steps=8 format=3 uid="uid://bqjtwf6icxhp4"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_menu.gd" id="1_nu84v"]
 [ext_resource type="Resource" uid="uid://bg445sch6t38i" path="res://resources/meta_upgrades/experience_gain.tres" id="2_02mqc"]
+[ext_resource type="Resource" uid="uid://cyk7o74qperqr" path="res://resources/meta_upgrades/health_increase.tres" id="3_8a10r"]
 [ext_resource type="PackedScene" uid="uid://cwp4qvdy2vm1p" path="res://scenes/ui/meta_upgrade_card.tscn" id="3_sw7xi"]
 [ext_resource type="PackedScene" uid="uid://lhto6eve7jeu" path="res://scenes/ui/vignette.tscn" id="3_vsasj"]
 [ext_resource type="TileSet" uid="uid://ijhbaenqxa0m" path="res://resources/tileset.tres" id="3_yb5x7"]
@@ -10,7 +11,7 @@
 [node name="MetaMenu" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_nu84v")
-upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_02mqc")])
+upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_02mqc"), ExtResource("3_8a10r")])
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(71.57, 0)

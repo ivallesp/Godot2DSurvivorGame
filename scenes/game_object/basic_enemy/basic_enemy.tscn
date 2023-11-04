@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ct8fe5d4u033o" path="res://scenes/components/velocity_component.tscn" id="5_r0lwu"]
 [ext_resource type="PackedScene" uid="uid://5slbgwon0at6" path="res://scenes/components/hit_flash_component.tscn" id="6_goqbe"]
 [ext_resource type="Shader" path="res://scenes/components/hit_flash_component.gdshader" id="7_qm3q3"]
-[ext_resource type="PackedScene" uid="uid://deca17wlaexa8" path="res://scenes/components/random_audio_stream_player_2d.tscn" id="11_qtflq"]
+[ext_resource type="PackedScene" uid="uid://deca17wlaexa8" path="res://scenes/components/random_audio_stream_player_2d_component.tscn" id="11_qtflq"]
 [ext_resource type="AudioStream" uid="uid://culfsm66srbgk" path="res://assets/audio/footstep_carpet_000.ogg" id="12_2qc3h"]
 [ext_resource type="AudioStream" uid="uid://dfbuq0hvdrmju" path="res://assets/audio/footstep_carpet_001.ogg" id="13_refnn"]
 [ext_resource type="AudioStream" uid="uid://4dx3ph7sd4jd" path="res://assets/audio/footstep_carpet_002.ogg" id="14_uranr"]
@@ -56,7 +56,7 @@ _data = {
 "default": SubResource("Animation_i68fr")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjrvl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ir11k"]
 resource_local_to_scene = true
 shader = ExtResource("7_qm3q3")
 shader_parameter/lerp_percent = 0.0
@@ -89,7 +89,7 @@ health_component_node = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_goqbe")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_sjrvl")
+hit_flash_material = SubResource("ShaderMaterial_ir11k")
 
 [node name="HitRandomAudioStreamPlayer2D" parent="." instance=ExtResource("11_qtflq")]
 streams = Array[AudioStream]([ExtResource("12_2qc3h"), ExtResource("13_refnn"), ExtResource("14_uranr"), ExtResource("15_a8ryk"), ExtResource("16_q74hk")])
