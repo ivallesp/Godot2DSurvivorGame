@@ -9,6 +9,7 @@ const SPAWN_RADIUS = 375
 @onready var timer = $Timer
 
 var enemy_table = WeightedTable.new()
+var enemies_to_spawn = 1
 
 
 func _ready():
@@ -48,15 +49,17 @@ func check_ray_collision(pos1, pos2, collision_mask):
 
 func on_timer_timeout():
 	timer.start()  # We use this instead of autostart to update the config
-	var spawn_position = get_spawn_position()
-	if spawn_position == null:
-		return
 
-	var enemy_scene = enemy_table.pick_item()
-	var enemy_instance = enemy_scene.instantiate() as Node2D
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-	entities_layer.add_child(enemy_instance)
-	enemy_instance.global_position = spawn_position
+
+	for i in enemies_to_spawn:
+		var spawn_position = get_spawn_position()
+		if spawn_position == null:
+			return
+		var enemy_scene = enemy_table.pick_item()
+		var enemy_instance = enemy_scene.instantiate() as Node2D
+		entities_layer.add_child(enemy_instance)
+		enemy_instance.global_position = spawn_position
 
 
 func on_arena_difficulty_increased(arena_difficulty):
@@ -67,3 +70,5 @@ func on_arena_difficulty_increased(arena_difficulty):
 		enemy_table.add_item(wizard_enemy_scene, 20)
 	elif arena_difficulty == 18:  # At 1'30s
 		enemy_table.add_item(bat_enemy_scene, 8)
+	if (arena_difficulty % 6) == 0:  # Every 30s, increase the spawn
+		enemies_to_spawn = int(arena_difficulty / 6) + 1
