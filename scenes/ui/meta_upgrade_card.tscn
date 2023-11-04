@@ -120,7 +120,7 @@ anti_aliasing = false
 custom_minimum_size = Vector2(180, 150)
 pivot_offset = Vector2(75, 75)
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 script = ExtResource("1_581xj")
 
 [node name="ClickAudioPlayerComponent" parent="." instance=ExtResource("2_wtn56")]
@@ -163,6 +163,7 @@ autowrap_mode = 2
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 theme_type_variation = &"BlueOutlineLabel"
 theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
 text = "This is a test description to be replaced, with a proper description of an ability!."
