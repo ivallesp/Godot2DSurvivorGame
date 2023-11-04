@@ -4,10 +4,12 @@ extends Node
 @onready var timer = $Timer
 var damage = 15
 var max_radius = 100
+var n_anvils = 1
 
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func check_ray_collision(pos1, pos2, collision_mask):
@@ -18,18 +20,32 @@ func check_ray_collision(pos1, pos2, collision_mask):
 
 func on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player")
-	var anvil = anvil_scene.instantiate()
-	get_tree().get_first_node_in_group("foreground_layer").add_child(anvil)
 
-	var random_dir = Vector2.RIGHT.rotated(randf() * 2 * PI)
 	var radius = randf() * max_radius
-	var spawn_position = player.global_position + radius * random_dir
+	var direction = Vector2.RIGHT.rotated(randf() * 2 * PI)
 
-	for i in range(4):
-		if check_ray_collision(player.global_position, spawn_position, 1):
-			random_dir = random_dir.rotated(deg_to_rad(90))
-			spawn_position = player.global_position + radius * random_dir
-		else:
-			break
-	anvil.global_position = spawn_position
-	anvil.hitbox_component.damage = damage
+	for i in range(n_anvils):
+		var anvil = anvil_scene.instantiate()
+		get_tree().get_first_node_in_group("foreground_layer").add_child(anvil)
+
+		var offset = radius * direction
+		var spawn_position = (
+			player.global_position + offset.rotated(2 * PI * i / n_anvils)
+		)
+
+		for j in range(4):
+			if check_ray_collision(player.global_position, spawn_position, 1):
+				direction = direction.rotated(deg_to_rad(90))
+				spawn_position = player.global_position + radius * direction
+			else:
+				break
+		anvil.global_position = spawn_position
+		anvil.hitbox_component.damage = damage
+
+
+func on_ability_upgrade_added(
+	upgrade: AbilityUpgrade, current_upgrades: Dictionary
+):
+	if upgrade.id == "anvil_count":
+		# Initial one + upgrade
+		n_anvils = current_upgrades["anvil_count"]["quantity"] + 1
